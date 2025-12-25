@@ -7,59 +7,51 @@ import { GlowCard } from "@/components/ui/GlowCard"
 
 const services = [
     {
-        title: "Cloud-Native Software Development",
-        description: "Build scalable, resilient applications using cloud-native architectures and modern development practices.",
+        title: "Cloud-Native Dev",
+        description: "Scalable, resilient applications built on modern serverless & container architectures.",
         icon: Cloud,
-        className: "md:col-span-2",
         glow: "#00F0FF"
     },
     {
-        title: "Microservices & API Engineering",
-        description: "Design and implement microservices architectures with robust API gateways and event-driven systems.",
+        title: "Microservices",
+        description: "Decoupled systems with robust API gateways for agility and scale.",
         icon: Share2,
-        className: "md:col-span-1",
         glow: "#A855F7"
     },
     {
-        title: "Data Engineering & AI Solutions",
-        description: "Data streaming, analytics, and AI integration to unlock insights and drive intelligent decision-making.",
+        title: "AI & Data Solutions",
+        description: "Unlock insights with advanced data engineering and predictive AI integration.",
         icon: Brain,
-        className: "md:col-span-1",
         glow: "#10B981"
     },
     {
-        title: "Enterprise Integrations",
-        description: "Seamless integration with Telco, CRM, Billing, and Middleware systems for unified business operations.",
+        title: "Enterprise Systems",
+        description: "Seamless integration with Telco, CRM, and Middleware platforms.",
         icon: Radio,
-        className: "md:col-span-2",
         glow: "#F59E0B"
     },
     {
-        title: "DevOps & Cloud Deployment",
-        description: "Automated CI/CD pipelines and cloud deployment strategies for rapid, reliable releases.",
+        title: "DevOps & Cloud",
+        description: "Automated CI/CD and infrastructure-as-code for rapid, reliable deployment.",
         icon: Rocket,
-        className: "md:col-span-2 md:row-span-1",
         glow: "#EF4444"
     },
     {
-        title: "Web & Mobile Applications",
-        description: "Modern web and mobile applications built with cutting-edge technologies and best practices.",
+        title: "Mobile & Web",
+        description: "High-performance cross-platform applications with premium UX.",
         icon: Smartphone,
-        className: "md:col-span-1",
         glow: "#3B82F6"
     },
     {
-        title: "SaaS Product Engineering",
-        description: "End-to-end SaaS product development from concept to scalable cloud-based solutions.",
+        title: "SaaS Engineering",
+        description: "End-to-end product development from concept to market-ready solution.",
         icon: Code,
-        className: "md:col-span-1",
         glow: "#EC4899"
     },
     {
-        title: "IT Resource Outsourcing",
-        description: "Dedicated teams and IT resource outsourcing to extend your development capabilities.",
+        title: "Team Augmentation",
+        description: "Expert engineering teams ready to integrate and accelerate your delivery.",
         icon: Users,
-        className: "md:col-span-2",
         glow: "#6366F1"
     },
 ]
@@ -69,51 +61,53 @@ export function Services() {
         <section id="services" className="py-32 relative overflow-hidden bg-background">
             {/* Background Texture */}
             <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
-                style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '50px 50px' }}
+                style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '40px 40px' }}
             />
 
-            <div className="container px-4 relative z-10">
+            <div className="container px-4 relative z-10 max-w-7xl mx-auto">
+                {/* Section Header */}
                 <motion.div
-                    className="mb-20 max-w-2xl mx-auto text-center"
+                    className="mb-20 text-center"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    <span className="text-primary font-semibold tracking-wider text-sm uppercase mb-4 block">What We Do</span>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Engineering Capabilities</h2>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                        Comprehensive cloud-native solutions tailored to accelerate your digital transformation.
+                    <span className="text-primary font-semibold tracking-wider text-sm uppercase mb-4 block">Our Expertise</span>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight">
+                        Engineering <span className="text-slate-500">Capabilities</span>
+                    </h2>
+                    <p className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
+                        We build the digital backbone of modern enterprises with cloud-native precision.
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-fr">
+                {/* Uniform Grid Layout */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
-                            className={cn("h-full", service.className)} // Wrapper for grid positioning
+                            className="h-full"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.05 }}
                         >
                             <GlowCard
-                                className="h-full flex flex-col justify-between group"
+                                className="h-full flex flex-col items-start p-8 group border-white/5 bg-white/[0.02] hover:bg-white/[0.04]"
                                 glowColor={service.glow}
                             >
-                                <div className="absolute top-0 right-0 p-6 opacity-[0.03] group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
-                                    <service.icon className="w-32 h-32" />
+                                <div className="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-primary/50 group-hover:bg-primary/20 transition-all duration-300">
+                                    <service.icon className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
                                 </div>
 
-                                <div className="relative z-10">
-                                    <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-300">
-                                        <service.icon className="w-7 h-7 text-primary" />
-                                    </div>
-                                    <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300">{service.title}</h3>
-                                    <p className="text-slate-400 text-sm leading-relaxed group-hover:text-slate-300 transition-colors">
-                                        {service.description}
-                                    </p>
-                                </div>
+                                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300">
+                                    {service.title}
+                                </h3>
+
+                                <p className="text-slate-500 text-sm leading-relaxed group-hover:text-slate-400 transition-colors">
+                                    {service.description}
+                                </p>
                             </GlowCard>
                         </motion.div>
                     ))}
