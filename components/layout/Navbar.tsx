@@ -29,7 +29,7 @@ export function Navbar() {
                     "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 transition-all duration-300",
                     isScrolled
                         ? "h-16 bg-[#050A14]/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/10"
-                        : "h-20 bg-white/[0.02] backdrop-blur-sm border-b border-white/5"
+                        : "h-20 bg-white/[0.03] backdrop-blur-md border-b border-white/[0.02]"
                 )}
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
