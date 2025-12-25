@@ -124,78 +124,92 @@ export function Hero() {
                         {/* Glow Behind */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-blue-600/10 rounded-full blur-3xl" />
 
-                        {/* Main Glass Panel */}
-                        <div className="relative aspect-square md:aspect-[4/3] bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl shadow-black/50 overflow-hidden ring-1 ring-white/5">
-                            {/* Grid Overlay */}
-                            <div className="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
+                        {/* Main Code Editor Window */}
+                        <div className="relative aspect-square md:aspect-[4/3] bg-[#0B1121] border border-white/10 rounded-2xl shadow-2xl shadow-black/50 overflow-hidden ring-1 ring-white/5 flex flex-col">
 
-                            {/* Animated Connection Lines (SVG) */}
-                            <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30">
-                                <motion.path
-                                    d="M100 100 Q 200 50 300 150 T 500 100"
-                                    stroke="url(#gradient-line)"
-                                    strokeWidth="2"
-                                    fill="none"
-                                    initial={{ pathLength: 0 }}
-                                    animate={{ pathLength: 1 }}
-                                    transition={{ duration: 2, ease: "easeInOut", repeat: Infinity, repeatType: "reverse", repeatDelay: 1 }}
-                                />
-                                <defs>
-                                    <linearGradient id="gradient-line" x1="0%" y1="0%" x2="100%" y2="0%">
-                                        <stop offset="0%" stopColor="#00F0FF" stopOpacity="0" />
-                                        <stop offset="50%" stopColor="#00F0FF" />
-                                        <stop offset="100%" stopColor="#00F0FF" stopOpacity="0" />
-                                    </linearGradient>
-                                </defs>
-                            </svg>
+                            {/* Window Header */}
+                            <div className="h-8 bg-[#0F172A] border-b border-white/5 flex items-center px-4 gap-2 z-20">
+                                <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                                <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                                <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                                <div className="ml-4 px-3 py-0.5 rounded-full bg-white/5 border border-white/5 text-[10px] text-slate-500 font-mono">
+                                    architecture.tsx
+                                </div>
+                            </div>
 
-                            {/* Floating Architecture Nodes */}
-                            <div className="relative h-full w-full">
-                                {/* Center Node */}
-                                <motion.div
-                                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 rounded-xl bg-[#0B1121] border border-primary/30 shadow-[0_0_30px_-5px_rgba(0,240,255,0.2)] z-20"
-                                    animate={{ y: [0, -10, 0] }}
-                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                >
-                                    <Cloud className="w-12 h-12 text-primary" />
-                                </motion.div>
+                            {/* Editor Content Area */}
+                            <div className="flex-1 relative overflow-hidden bg-[#050A14]">
+                                {/* Grid Overlay - Subtle but visible */}
+                                <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:30px_30px]" />
 
-                                {/* Satellite 1 */}
-                                <motion.div
-                                    className="absolute top-[20%] right-[20%] p-3 rounded-lg bg-[#0F172A] border border-white/10 shadow-lg z-10"
-                                    animate={{ y: [0, 15, 0], x: [0, -5, 0] }}
-                                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                                >
-                                    <Zap className="w-6 h-6 text-yellow-400" />
-                                </motion.div>
+                                {/* Animated Connection Lines (SVG) */}
+                                <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30">
+                                    <motion.path
+                                        d="M100 100 Q 200 50 300 150 T 500 100"
+                                        stroke="url(#gradient-line)"
+                                        strokeWidth="2"
+                                        fill="none"
+                                        initial={{ pathLength: 0 }}
+                                        animate={{ pathLength: 1 }}
+                                        transition={{ duration: 2, ease: "easeInOut", repeat: Infinity, repeatType: "reverse", repeatDelay: 1 }}
+                                    />
+                                    <defs>
+                                        <linearGradient id="gradient-line" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stopColor="#00F0FF" stopOpacity="0" />
+                                            <stop offset="50%" stopColor="#00F0FF" />
+                                            <stop offset="100%" stopColor="#00F0FF" stopOpacity="0" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
 
-                                {/* Satellite 2 */}
-                                <motion.div
-                                    className="absolute bottom-[25%] left-[15%] p-3 rounded-lg bg-[#0F172A] border border-white/10 shadow-lg z-10"
-                                    animate={{ y: [0, -12, 0], x: [0, 5, 0] }}
-                                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                                >
-                                    <Shield className="w-6 h-6 text-emerald-400" />
-                                </motion.div>
+                                {/* Floating Architecture Nodes */}
+                                <div className="relative h-full w-full">
+                                    {/* Center Node */}
+                                    <motion.div
+                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 rounded-xl bg-[#0B1121] border border-primary/30 shadow-[0_0_30px_-5px_rgba(0,240,255,0.2)] z-20"
+                                        animate={{ y: [0, -10, 0] }}
+                                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                    >
+                                        <Cloud className="w-12 h-12 text-primary" />
+                                    </motion.div>
 
-                                {/* Code Snippet Block */}
-                                <motion.div
-                                    className="absolute bottom-8 right-8 bg-black/40 backdrop-blur-md rounded-lg border border-white/5 p-4 font-mono text-xs text-slate-400 w-48 shadow-xl"
-                                    initial={{ opacity: 0, x: 20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 1 }}
-                                >
-                                    <div className="flex gap-1.5 mb-2 opacity-50">
-                                        <div className="w-2 h-2 rounded-full bg-white" />
-                                        <div className="w-2 h-2 rounded-full bg-white" />
-                                        <div className="w-2 h-2 rounded-full bg-white" />
-                                    </div>
-                                    <div className="space-y-1">
-                                        <p><span className="text-purple-400">deploy</span>(target);</p>
-                                        <p><span className="text-blue-400">scaling</span>: <span className="text-green-400">auto</span>;</p>
-                                        <p className="text-primary animate-pulse">_optimized</p>
-                                    </div>
-                                </motion.div>
+                                    {/* Satellite 1 */}
+                                    <motion.div
+                                        className="absolute top-[20%] right-[20%] p-3 rounded-lg bg-[#0F172A] border border-white/10 shadow-lg z-10"
+                                        animate={{ y: [0, 15, 0], x: [0, -5, 0] }}
+                                        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                                    >
+                                        <Zap className="w-6 h-6 text-yellow-400" />
+                                    </motion.div>
+
+                                    {/* Satellite 2 */}
+                                    <motion.div
+                                        className="absolute bottom-[25%] left-[15%] p-3 rounded-lg bg-[#0F172A] border border-white/10 shadow-lg z-10"
+                                        animate={{ y: [0, -12, 0], x: [0, 5, 0] }}
+                                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                                    >
+                                        <Shield className="w-6 h-6 text-emerald-400" />
+                                    </motion.div>
+
+                                    {/* Code Snippet Block - Kept as floating element overlay */}
+                                    <motion.div
+                                        className="absolute bottom-8 right-8 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 p-4 font-mono text-xs text-slate-400 w-48 shadow-xl z-30"
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 1 }}
+                                    >
+                                        <div className="flex gap-1.5 mb-2 opacity-50">
+                                            <div className="w-2 h-2 rounded-full bg-white" />
+                                            <div className="w-2 h-2 rounded-full bg-white" />
+                                            <div className="w-2 h-2 rounded-full bg-white" />
+                                        </div>
+                                        <div className="space-y-1">
+                                            <p><span className="text-purple-400">const</span> <span className="text-yellow-200">cloud</span> = <span className="text-blue-400">new</span> <span className="text-green-400">Cluster</span>();</p>
+                                            <p><span className="text-purple-400">await</span> cloud.<span className="text-blue-400">deploy</span>(<span className="text-orange-300">"global"</span>);</p>
+                                            <p className="text-primary animate-pulse">_ready</p>
+                                        </div>
+                                    </motion.div>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
