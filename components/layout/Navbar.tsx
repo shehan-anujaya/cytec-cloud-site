@@ -28,7 +28,7 @@ export function Navbar() {
                 className={cn(
                     "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 transition-all duration-300",
                     isScrolled
-                        ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
+                        ? "bg-background/70 backdrop-blur-xl border-b border-primary/10 shadow-lg shadow-black/5"
                         : "bg-transparent"
                 )}
                 initial={{ y: -100 }}
@@ -71,7 +71,7 @@ export function Navbar() {
                 </nav>
 
                 <button
-                    className="md:hidden p-2 text-foreground"
+                    className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X /> : <Menu />}
@@ -82,40 +82,40 @@ export function Navbar() {
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="fixed inset-0 z-40 bg-background pt-24 px-6 md:hidden"
+                        initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                        exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+                        className="fixed inset-0 z-40 bg-background/95 backdrop-blur-3xl pt-24 px-6 md:hidden"
                     >
                         <div className="flex flex-col gap-6">
                             <Link
                                 href="#services"
-                                className="text-lg font-medium hover:text-primary transition-colors border-b border-border pb-2"
+                                className="text-2xl font-medium text-foreground/80 hover:text-primary transition-colors border-b border-white/5 pb-4"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Services
                             </Link>
                             <Link
                                 href="#about"
-                                className="text-lg font-medium hover:text-primary transition-colors border-b border-border pb-2"
+                                className="text-2xl font-medium text-foreground/80 hover:text-primary transition-colors border-b border-white/5 pb-4"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 About
                             </Link>
                             <Link
                                 href="#work"
-                                className="text-lg font-medium hover:text-primary transition-colors border-b border-border pb-2"
+                                className="text-2xl font-medium text-foreground/80 hover:text-primary transition-colors border-b border-white/5 pb-4"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Work
                             </Link>
-                            <div className="flex items-center justify-between py-4">
-                                <span className="text-sm font-medium">Switch Theme</span>
+                            <div className="flex items-center justify-between py-4 border-b border-white/5">
+                                <span className="text-lg font-medium text-foreground/80">Switch Theme</span>
                                 <button
                                     onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                                    className="p-2 rounded-full hover:bg-accent transition-colors border border-border"
+                                    className="p-3 rounded-full hover:bg-white/5 transition-colors border border-white/10"
                                 >
-                                    {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                                    {theme === "dark" ? <Sun className="w-5 h-5 text-primary" /> : <Moon className="w-5 h-5" />}
                                 </button>
                             </div>
                             <button className="w-full bg-primary text-primary-foreground px-4 py-3 rounded-md font-medium hover:opacity-90 transition-opacity">

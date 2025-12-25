@@ -1,63 +1,92 @@
 @import "tailwindcss";
 
 :root {
-  /* Light Mode - "Clean & Professional" */
+  /* Light Mode - "Executive & Clean" */
+  /* Main Background: Very sharp white/blue tint */
   --background: #ffffff;
-  --foreground: #0f172a;
-  /* Deep Navy Blue text */
+  --foreground: #020617;
+  /* Slate 950 */
+
+  /* Surface / Cards */
   --card: #f8fafc;
+  /* Slate 50 */
   --card-foreground: #0f172a;
+  /* Slate 900 */
+
   --popover: #ffffff;
   --popover-foreground: #0f172a;
-  --primary: #2563eb;
-  /* Bright Blue */
+
+  /* Brand Colors */
+  --primary: #0080ff;
+  /* Strong Tech Blue - slightly deeper than before */
   --primary-foreground: #ffffff;
+
   --secondary: #e2e8f0;
+  /* Slate 200 */
   --secondary-foreground: #0f172a;
+
   --muted: #f1f5f9;
+  /* Slate 100 */
   --muted-foreground: #64748b;
+  /* Slate 500 */
+
   --accent: #f1f5f9;
   --accent-foreground: #0f172a;
+
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
+
   --border: #e2e8f0;
   --input: #e2e8f0;
-  --ring: #2563eb;
+  --ring: #0080ff;
+
   --radius: 0.5rem;
+
+  /* Custom Gradients */
+  --gradient-bg: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
 }
 
 .dark {
-  /* Dark Mode - "Tech Blue" (Strict: Professional, Dark Blue/Black) */
-  --background: #020617;
-  /* Very Dark Navy (Slate 950) - almost black but professional blueish */
-  /* Or use #0a192f as planned? #0a192f is lighter. user said "dark blue with black".
-     Let's use a very deep blue as background, effectively "black-ish blue".
-     #020617 is very good.
-  */
-  --background: #0a192f;
-  /* Using the research result "Tech Blue" for now to match specific request/plan */
-  --foreground: #e2e8f0;
-  /* Off-white/Light Slate */
-  --card: #112240;
-  /* Slightly lighter blue for cards */
-  --card-foreground: #e2e8f0;
-  --popover: #0a192f;
-  --popover-foreground: #e2e8f0;
-  --primary: #64ffda;
-  /* Teal/Cyan accent from research */
-  --primary-foreground: #0a192f;
-  --secondary: #112240;
-  --secondary-foreground: #e2e8f0;
+  /* Dark Mode - "Cytec Deep Ocean" */
+
+  /* Main Background: Deep rich blue-black */
+  --background: #050A14;
+
+  /* Text: Clear off-white */
+  --foreground: #F8FAFC;
+
+  /* Cards: Slightly lighter deep blue with transparency capability */
+  --card: #0B1121;
+  --card-foreground: #F8FAFC;
+
+  --popover: #0B1121;
+  --popover-foreground: #F8FAFC;
+
+  /* Primary: Electric Cyan / Lightning Blue */
+  --primary: #00F0FF;
+  --primary-foreground: #050A14;
+
+  /* Secondary: Deep Slate */
+  --secondary: #1e293b;
+  --secondary-foreground: #F8FAFC;
+
+  /* Muted: Subtle blue-greys */
   --muted: #1e293b;
   --muted-foreground: #94a3b8;
-  --accent: #112240;
-  /* Hover state usually */
-  --accent-foreground: #e2e8f0;
+
+  /* Accent: Glowy Blue */
+  --accent: #0f253a;
+  --accent-foreground: #00F0FF;
+
   --destructive: #7f1d1d;
-  --destructive-foreground: #e2e8f0;
+  --destructive-foreground: #F8FAFC;
+
   --border: #1e293b;
   --input: #1e293b;
-  --ring: #64ffda;
+  --ring: #00F0FF;
+
+  /* Custom Gradients */
+  --gradient-bg: radial-gradient(circle at center, #0B162C 0%, #050A14 100%);
 }
 
 @theme inline {
@@ -81,6 +110,34 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --radius-radius: var(--radius);
+
+  /* Animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 10px -10px var(--primary);
+    }
+
+    to {
+      box-shadow: 0 0 20px 5px var(--primary);
+    }
+  }
 }
 
 @layer base {
@@ -94,5 +151,32 @@
 
   body {
     @apply bg-background text-foreground transition-colors duration-300;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply tracking-tight font-bold;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-background/60 backdrop-blur-xl border border-white/10;
+  }
+
+  .glass-card {
+    @apply bg-card/40 backdrop-blur-md border border-white/5 shadow-xl;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+  }
+
+  .box-glow {
+    box-shadow: 0 0 40px -10px rgba(0, 240, 255, 0.3);
   }
 }
