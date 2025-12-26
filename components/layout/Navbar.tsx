@@ -24,10 +24,10 @@ export function Navbar() {
         <div className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-6 pointer-events-none">
             <motion.header
                 className={cn(
-                    "w-full max-w-7xl flex items-center justify-between px-8 py-3 transition-all duration-500 pointer-events-auto",
-                    "border rounded-2xl backdrop-blur-3xl shadow-2xl transition-all",
+                    "w-full max-w-7xl flex items-center justify-between px-10 py-3 transition-all duration-500 pointer-events-auto",
+                    "border rounded-full backdrop-blur-3xl shadow-2xl transition-all",
                     isScrolled
-                        ? "h-16 bg-[#050A14]/60 border-white/[0.1] shadow-black/40 -translate-y-2"
+                        ? "h-14 bg-[#050A14]/60 border-white/[0.1] shadow-black/40 -translate-y-2"
                         : "h-20 bg-white/[0.03] border-white/[0.08] shadow-transparent"
                 )}
                 initial={{ y: -100, opacity: 0 }}
@@ -72,7 +72,7 @@ export function Navbar() {
 
                     <Link
                         href="#contact"
-                        className="relative group overflow-hidden px-6 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-primary/50 transition-all duration-300"
+                        className="relative group overflow-hidden px-6 py-2.5 rounded-full bg-white/[0.03] border border-white/10 hover:border-primary/50 transition-all duration-300"
                     >
                         <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity" />
                         <span className="relative z-10 text-sm font-bold text-white group-hover:text-primary transition-colors">
@@ -84,7 +84,7 @@ export function Navbar() {
                 {/* Mobile Menu Toggle */}
                 <motion.button
                     whileTap={{ scale: 0.9 }}
-                    className="md:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-300"
+                    className="md:hidden p-2.5 rounded-full bg-white/5 border border-white/10 text-slate-300"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -107,7 +107,7 @@ export function Navbar() {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: -20, scale: 0.95 }}
                             transition={{ type: "spring", damping: 20, stiffness: 300 }}
-                            className="fixed top-24 left-4 right-4 z-[50] p-6 rounded-3xl border border-white/10 bg-[#050A14]/90 backdrop-blur-2xl shadow-2xl md:hidden"
+                            className="fixed top-24 left-4 right-4 z-[50] p-8 rounded-[2.5rem] border border-white/10 bg-[#050A14]/90 backdrop-blur-2xl shadow-2xl md:hidden"
                         >
                             <div className="flex flex-col gap-4">
                                 {[
@@ -118,7 +118,7 @@ export function Navbar() {
                                     <Link
                                         key={item.name}
                                         href={item.href}
-                                        className="text-xl font-medium text-slate-300 hover:text-primary transition-colors py-2"
+                                        className="text-xl font-medium text-slate-300 hover:text-primary transition-colors py-2 px-4"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                     >
                                         {item.name}
@@ -127,7 +127,7 @@ export function Navbar() {
 
                                 <Link
                                     href="#contact"
-                                    className="w-full bg-primary text-white py-4 rounded-2xl font-bold text-center hover:shadow-[0_0_20px_-5px_rgba(0,128,255,0.4)] transition-all mt-4"
+                                    className="w-full bg-primary text-white py-4 rounded-full font-bold text-center hover:shadow-[0_0_20px_-5px_rgba(0,128,255,0.4)] transition-all mt-6"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     Contact Us
