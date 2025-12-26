@@ -10,7 +10,7 @@ const services = [
         title: "Cloud-Native Dev",
         description: "Scalable, resilient applications built on modern serverless & container architectures.",
         icon: Cloud,
-        glow: "#00F0FF"
+        glow: "#0080ff"
     },
     {
         title: "Microservices",

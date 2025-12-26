@@ -75,7 +75,7 @@ export function Hero() {
                             transition={{ duration: 0.5, delay: 0.3 }}
                         >
                             Powering <br className="hidden lg:block" />
-                            <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] via-[#0080FF] to-[#00F0FF] bg-[length:200%_auto] animate-gradient">
+                            <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-primary bg-[length:200%_auto] animate-gradient">
                                 Intelligent
                                 <svg className="absolute w-full h-3 bottom-1 left-0 text-primary/30 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
                                     <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="2" fill="none" />
@@ -100,7 +100,7 @@ export function Hero() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.5 }}
                         >
-                            <Link href="/contact" className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-lg bg-primary px-8 text-base font-semibold text-black transition-all duration-300 hover:bg-cyan-400 hover:shadow-[0_0_30px_-5px_rgba(0,240,255,0.6)]">
+                            <Link href="/contact" className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-lg bg-primary px-8 text-base font-semibold text-white transition-all duration-300 hover:bg-blue-600 hover:shadow-[0_0_30px_-5px_rgba(0,128,255,0.6)]">
                                 <span className="absolute inset-0 bg-white/20 group-hover:translate-x-full transition-transform duration-500 ease-out -skew-x-12" />
                                 <span className="relative flex items-center gap-2">
                                     Start Transformation
@@ -122,7 +122,7 @@ export function Hero() {
                         transition={{ duration: 1, delay: 0.2 }}
                     >
                         {/* Glow Behind */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-blue-600/10 rounded-full blur-3xl" />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-blue-600/10 rounded-full blur-3xl" />
 
                         {/* Main Code Editor Window */}
                         <div className="relative aspect-square md:aspect-[4/3] bg-[#0B1121] border border-white/10 rounded-2xl shadow-2xl shadow-black/50 overflow-hidden ring-1 ring-white/5 flex flex-col">
@@ -155,9 +155,9 @@ export function Hero() {
                                     />
                                     <defs>
                                         <linearGradient id="gradient-line" x1="0%" y1="0%" x2="100%" y2="0%">
-                                            <stop offset="0%" stopColor="#00F0FF" stopOpacity="0" />
-                                            <stop offset="50%" stopColor="#00F0FF" />
-                                            <stop offset="100%" stopColor="#00F0FF" stopOpacity="0" />
+                                            <stop offset="0%" stopColor="var(--primary)" stopOpacity="0" />
+                                            <stop offset="50%" stopColor="var(--primary)" />
+                                            <stop offset="100%" stopColor="var(--primary)" stopOpacity="0" />
                                         </linearGradient>
                                     </defs>
                                 </svg>
@@ -166,7 +166,7 @@ export function Hero() {
                                 <div className="relative h-full w-full">
                                     {/* Center Node */}
                                     <motion.div
-                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 rounded-xl bg-[#0B1121] border border-primary/30 shadow-[0_0_30px_-5px_rgba(0,240,255,0.2)] z-20"
+                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 rounded-xl bg-[#0B1121] border border-primary/30 shadow-[0_0_30px_-5px_rgba(0,128,255,0.2)] z-20"
                                         animate={{ y: [0, -10, 0] }}
                                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                                     >
