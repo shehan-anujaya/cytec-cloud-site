@@ -21,25 +21,25 @@ export function Navbar() {
     }, [])
 
     return (
-        <div className="fixed top-2 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+        <div className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-6 pointer-events-none">
             <motion.header
                 className={cn(
-                    "flex items-center gap-8 px-6 transition-all duration-500 pointer-events-auto",
-                    "border rounded-full backdrop-blur-3xl shadow-2xl",
+                    "w-full max-w-7xl flex items-center justify-between px-8 py-3 transition-all duration-500 pointer-events-auto",
+                    "border rounded-2xl backdrop-blur-3xl shadow-2xl transition-all",
                     isScrolled
-                        ? "h-14 bg-[#050A14]/60 border-white/[0.12] shadow-black/60 scale-[0.95] translate-y-2"
-                        : "h-16 bg-white/[0.03] border-white/[0.08] shadow-black/20"
+                        ? "h-16 bg-[#050A14]/60 border-white/[0.1] shadow-black/40 -translate-y-2"
+                        : "h-20 bg-white/[0.03] border-white/[0.08] shadow-transparent"
                 )}
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-                {/* Logo Section - Keep it compact */}
-                <Link href="/" className="relative shrink-0">
+                {/* Logo Section */}
+                <Link href="/" className="relative flex items-center gap-2">
                     <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="relative w-32 h-6"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="relative w-40 h-10"
                     >
                         <Image
                             src={logo}
@@ -51,8 +51,8 @@ export function Navbar() {
                     </motion.div>
                 </Link>
 
-                {/* Desktop Nav - Tight spacing for pill feel */}
-                <nav className="hidden md:flex items-center gap-1">
+                {/* Desktop Nav - Aligned items */}
+                <nav className="hidden md:flex items-center gap-10">
                     {[
                         { name: "Services", href: "#services" },
                         { name: "About", href: "#about" },
@@ -61,36 +61,33 @@ export function Navbar() {
                         <Link
                             key={item.name}
                             href={item.href}
-                            className="relative px-4 py-1.5 text-xs font-semibold text-slate-300 transition-colors hover:text-white group"
+                            className="relative text-sm font-medium text-slate-300 transition-colors hover:text-white group"
                         >
-                            <span className="relative z-10">{item.name}</span>
-                            <motion.span
-                                className="absolute inset-0 rounded-full bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"
-                                layoutId="nav-bg"
-                                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                            />
+                            {item.name}
+                            <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full opacity-60" />
                         </Link>
                     ))}
 
-                    <div className="w-px h-4 bg-white/10 mx-3" />
+                    <div className="w-px h-6 bg-white/10 mx-2" />
 
                     <Link
                         href="#contact"
-                        className="relative group"
+                        className="relative group overflow-hidden px-6 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-primary/50 transition-all duration-300"
                     >
-                        <div className="relative bg-primary px-5 py-2 rounded-full text-xs font-bold text-white transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_15px_-3px_rgba(0,128,255,0.5)] active:scale-95">
+                        <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity" />
+                        <span className="relative z-10 text-sm font-bold text-white group-hover:text-primary transition-colors">
                             Contact Us
-                        </div>
+                        </span>
                     </Link>
                 </nav>
 
                 {/* Mobile Menu Toggle */}
                 <motion.button
                     whileTap={{ scale: 0.9 }}
-                    className="md:hidden p-2 rounded-full bg-white/5 border border-white/10 text-slate-300"
+                    className="md:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-300"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
-                    {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+                    {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
                 </motion.button>
             </motion.header>
 
