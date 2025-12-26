@@ -4,13 +4,11 @@ import * as React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import logo from "@/assets/logo.png"
-import { useTheme } from "next-themes"
-import { Moon, Sun, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 export function Navbar() {
-    const { theme, setTheme } = useTheme()
     const [isScrolled, setIsScrolled] = React.useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
 
@@ -28,8 +26,8 @@ export function Navbar() {
                 className={cn(
                     "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 transition-all duration-300",
                     isScrolled
-                        ? "h-16 bg-[#050A14]/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/10"
-                        : "h-20 bg-white/[0.03] backdrop-blur-md border-b border-white/[0.02]"
+                        ? "h-16 bg-[#050A14]/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20"
+                        : "h-20 bg-transparent"
                 )}
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
@@ -57,26 +55,18 @@ export function Navbar() {
                         <Link
                             key={item.name}
                             href={item.href}
-                            className="text-sm font-medium text-slate-300 hover:text-[#00F0FF] transition-colors relative group"
+                            className="text-sm font-medium text-slate-300 hover:text-primary transition-colors relative group"
                         >
                             {item.name}
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00F0FF] group-hover:w-full transition-all duration-300" />
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
                         </Link>
                     ))}
 
                     <div className="w-px h-6 bg-white/10 mx-2" />
 
-                    <button
-                        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                        className="p-2 rounded-full hover:bg-white/10 text-slate-300 hover:text-white transition-colors"
-                        aria-label="Toggle theme"
-                    >
-                        {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-                    </button>
-
                     <Link
                         href="#contact"
-                        className="bg-white/5 hover:bg-primary hover:text-black border border-white/10 text-white px-5 py-2 rounded-lg text-sm font-medium transition-all duration-300 backdrop-blur-md"
+                        className="bg-white/5 hover:bg-primary text-white hover:text-white border border-white/10 px-5 py-2 rounded-lg text-sm font-medium transition-all duration-300 backdrop-blur-md"
                     >
                         Contact Us
                     </Link>
@@ -109,26 +99,16 @@ export function Navbar() {
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className="text-2xl font-medium text-slate-300 hover:text-[#00F0FF] transition-colors border-b border-white/5 pb-4"
+                                    className="text-2xl font-medium text-slate-300 hover:text-primary transition-colors border-b border-white/5 pb-4"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     {item.name}
                                 </Link>
                             ))}
 
-                            <div className="flex items-center justify-between py-4 border-b border-white/5">
-                                <span className="text-lg font-medium text-slate-300">Switch Theme</span>
-                                <button
-                                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                                    className="p-3 rounded-full hover:bg-white/10 border border-white/10 text-slate-300"
-                                >
-                                    {theme === "dark" ? <Sun className="w-5 h-5 text-[#00F0FF]" /> : <Moon className="w-5 h-5" />}
-                                </button>
-                            </div>
-
                             <Link
                                 href="#contact"
-                                className="w-full bg-[#00F0FF] text-black px-4 py-3 rounded-lg font-bold text-center hover:opacity-90 transition-opacity mt-4"
+                                className="w-full bg-primary text-white px-4 py-3 rounded-lg font-bold text-center hover:opacity-90 transition-opacity mt-4"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Contact Us

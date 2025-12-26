@@ -1,92 +1,42 @@
 @import "tailwindcss";
 
 :root {
-  /* Light Mode - "Executive & Clean" */
-  /* Main Background: Very sharp white/blue tint */
-  --background: #ffffff;
-  --foreground: #020617;
-  /* Slate 950 */
-
-  /* Surface / Cards */
-  --card: #f8fafc;
-  /* Slate 50 */
-  --card-foreground: #0f172a;
-  /* Slate 900 */
-
-  --popover: #ffffff;
-  --popover-foreground: #0f172a;
-
-  /* Brand Colors */
-  --primary: #0080ff;
-  /* Strong Tech Blue - slightly deeper than before */
-  --primary-foreground: #ffffff;
-
-  --secondary: #e2e8f0;
-  /* Slate 200 */
-  --secondary-foreground: #0f172a;
-
-  --muted: #f1f5f9;
-  /* Slate 100 */
-  --muted-foreground: #64748b;
-  /* Slate 500 */
-
-  --accent: #f1f5f9;
-  --accent-foreground: #0f172a;
-
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
-
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #0080ff;
-
-  --radius: 0.5rem;
-
-  /* Custom Gradients */
-  --gradient-bg: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-}
-
-.dark {
-  /* Dark Mode - "Cytec Deep Ocean" */
-
-  /* Main Background: Deep rich blue-black */
+  /* Site locked to Dark Mode - "Cytec Deep Ocean" with Tech Blue */
   --background: #050A14;
-
-  /* Text: Clear off-white */
   --foreground: #F8FAFC;
-
-  /* Cards: Slightly lighter deep blue with transparency capability */
   --card: #0B1121;
   --card-foreground: #F8FAFC;
-
   --popover: #0B1121;
   --popover-foreground: #F8FAFC;
 
-  /* Primary: Electric Cyan / Lightning Blue */
-  --primary: #00F0FF;
-  --primary-foreground: #050A14;
+  /* Primary: Updated to the Strong Tech Blue requested by user */
+  --primary: #0080ff;
+  --primary-foreground: #ffffff;
 
-  /* Secondary: Deep Slate */
   --secondary: #1e293b;
   --secondary-foreground: #F8FAFC;
-
-  /* Muted: Subtle blue-greys */
   --muted: #1e293b;
   --muted-foreground: #94a3b8;
-
-  /* Accent: Glowy Blue */
   --accent: #0f253a;
-  --accent-foreground: #00F0FF;
-
+  --accent-foreground: #0080ff;
   --destructive: #7f1d1d;
   --destructive-foreground: #F8FAFC;
-
   --border: #1e293b;
   --input: #1e293b;
-  --ring: #00F0FF;
+  --ring: #0080ff;
+  --radius: 0.5rem;
 
   /* Custom Gradients */
   --gradient-bg: radial-gradient(circle at center, #0B162C 0%, #050A14 100%);
+}
+
+.dark {
+  /* Compatibility with existing .dark classes if any */
+  --background: #050A14;
+  --foreground: #F8FAFC;
+  --primary: #0080ff;
+  --ring: #0080ff;
+  --border: #1e293b;
 }
 
 @theme inline {
@@ -173,10 +123,10 @@
   }
 
   .text-glow {
-    text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+    text-shadow: 0 0 20px var(--primary);
   }
 
   .box-glow {
-    box-shadow: 0 0 40px -10px rgba(0, 240, 255, 0.3);
+    box-shadow: 0 0 40px -10px var(--primary);
   }
 }
